@@ -28,8 +28,8 @@ public class ReportController {
             // Dummy data for the report
             List<Map<String, Object>> data = new ArrayList<>();
             Map<String, Object> row = new HashMap<>();
-            row.put("packages", "5");
-            row.put("natureOfGoods", "Electronics");
+            row.put("packages", "Basic Package");
+            row.put("commodity", "Electronics");
             row.put("weight", "500kg");
             row.put("freight", "1000 USD");
             data.add(row);
@@ -53,7 +53,20 @@ public class ReportController {
             parameters.put("consigneeAddress", "OFFICE NO 204, SECOND FLOOR, PLOT NO 108, SECTOR NO 8, ASHOPALAV GANDHIDHAM OWNERS ASSOSIATION, GANDHIDHAM, KACHCHH, GUJARAT - 370201");
             parameters.put("consigneeName", "CONNECT IT HUB");
             parameters.put("consignorName", "CONNECT IT HUB");
-            parameters.put("commodity", "Electronics");
+//            parameters.put("BE_No_BillOfEntryNumber", "");
+//            parameters.put("CBM_CubicMeter", "");
+//            parameters.put("Bill_Number", "558");
+            parameters.put("AccountHolder", "Yash");
+            parameters.put("AccountBranch", "GANDHIDHAM");
+            parameters.put("AccountNumber", "10101010103");
+            parameters.put("IFSC_Code", "YES0001221");
+            parameters.put("Total_freight_amount", 14497.5);
+            parameters.put("Gaurantee_Charges", 800.0);
+            parameters.put("Bilty_Charges", 100.0);
+            parameters.put("AdvanceAmount", 15000.01);
+            parameters.put("Round_Off", 0.5);
+            parameters.put("Freight_To_Pay", 100398.0);
+
 
             // Generate the report as PDF
             byte[] pdfReport = reportService.generateReport(data, parameters);

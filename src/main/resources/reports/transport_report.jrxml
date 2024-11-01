@@ -1,6 +1,7 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
-<jasperReport name="Invoice" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+<jasperReport name="Invoice_1" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
@@ -49,42 +50,8 @@
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
 		</conditionalStyle>
 	</style>
-	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_CH" mode="Opaque" backcolor="#DDE4EB">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
 	<dataset name="tableDataset" uuid="f13e6d36-5148-4ecc-bbe3-3035def80980">
-		<parameter name="weight" class="java.lang.String"/>
-		<parameter name="freight" class="java.lang.String"/>
-		<parameter name="packages" class="java.lang.String"/>
-		<parameter name="natureOfGoods" class="java.lang.String"/>
-		<field name="packages" class="java.lang.String"/>
-		<field name="natureOfGoods" class="java.lang.String"/>
-		<field name="weight" class="java.lang.String"/>
-		<field name="freight" class="java.lang.String"/>
+		<query language="sql"><![CDATA[]]></query>
 	</dataset>
 	<parameter name="companyName" class="java.lang.String"/>
 	<parameter name="companyAddress" class="java.lang.String"/>
@@ -108,203 +75,341 @@
 	<parameter name="freight" class="java.lang.String"/>
 	<parameter name="packages" class="java.lang.String"/>
 	<parameter name="natureOfGoods" class="java.lang.String"/>
-	<parameter name="Parameter1" class="java.lang.String"/>
-	<query language="sql"><![CDATA[]]></query>
-	<title height="280" splitType="Stretch">
-		<element kind="line" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246" x="0" y="80" width="556" height="1">
+	<parameter name="BE_No_BillOfEntryNumber" class="java.lang.Long"/>
+	<parameter name="CBM_CubicMeter" class="java.lang.String"/>
+	<parameter name="Bill_Number" class="java.lang.Long"/>
+	<parameter name="AccountHolder" class="java.lang.String"/>
+	<parameter name="AccountBranch" class="java.lang.String"/>
+	<parameter name="AccountNumber" class="java.lang.String"/>
+	<parameter name="IFSC_Code" class="java.lang.String"/>
+	<parameter name="Total_freight_amount" class="java.lang.Double"/>
+	<parameter name="Gaurantee_Charges" class="java.lang.Double"/>
+	<parameter name="Bilty_Charges" class="java.lang.Double"/>
+	<parameter name="AdvanceAmount" class="java.lang.Double"/>
+	<parameter name="Round_Off" class="java.lang.Double"/>
+	<parameter name="Freight_To_Pay" class="java.lang.Double"/>
+	<query language="SQL"><![CDATA[select * from package_details]]></query>
+	<field name="packages" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="packages"/>
+		<property name="com.jaspersoft.studio.field.label" value="packages"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="package_details"/>
+	</field>
+	<field name="commodity" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="commodity"/>
+		<property name="com.jaspersoft.studio.field.label" value="commodity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="package_details"/>
+	</field>
+	<field name="weight" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="weight"/>
+		<property name="com.jaspersoft.studio.field.label" value="weight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="package_details"/>
+	</field>
+	<field name="freight" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="freight"/>
+		<property name="com.jaspersoft.studio.field.label" value="freight"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="package_details"/>
+	</field>
+	<title height="276" splitType="Stretch">
+		<element kind="line" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246" x="0" y="70" width="556" height="1">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
 <!--		<element kind="image" uuid="94883631-a913-43e2-b182-ab8d77d0181e" x="0" y="0" width="65" height="60" hImageAlign="Center">-->
 <!--			<expression><![CDATA["invoice_logo.png"]]></expression>-->
 <!--		</element>-->
-		<element kind="textField" uuid="2f17183f-1fd7-4776-8709-37feba8e367b" x="95" y="0" width="315" height="25" forecolor="#061966" fontSize="18.0" bold="true" hTextAlign="Left" vTextAlign="Top">
-			<expression><![CDATA[$P{companyName}]]></expression>
-		</element>
-		<element kind="textField" uuid="786843af-7510-4d7b-8f66-ae8fb6fee5eb" x="95" y="25" width="315" height="31" markup="none" fontName="Times New Roman" fontSize="11.0" hTextAlign="Left">
-			<expression><![CDATA[$P{companyAddress}]]></expression>
-		</element>
-		<element kind="staticText" uuid="657eeaff-51a6-449d-9e87-9a29a1b9895d" x="432" y="20" width="48" height="20" fontName="SansSerif" fontSize="10.0">
-			<text><![CDATA[Contact :]]></text>
-		</element>
-		<element kind="textField" uuid="6dfa2984-9e77-4b9f-b218-3f007d5c47ea" x="480" y="20" width="76" height="20" fontSize="10.0" hTextAlign="Left">
-			<expression><![CDATA[$P{companyContact}]]></expression>
-		</element>
-		<element kind="frame" uuid="7c9b97bf-8f66-47df-b78b-4ad15b4d4dd3" x="-1" y="80" width="202" height="80" printRepeatedValues="false">
-			<element kind="staticText" uuid="179c70b6-1a13-43f8-abd3-7654f89576d2" x="10" y="10" width="80" height="20" fontSize="11.0" bold="true">
+		<element kind="frame" uuid="5db73da4-6987-40d6-9068-801e871126f3" x="0" y="72" width="202" height="78" printRepeatedValues="false">
+			<element kind="staticText" uuid="bb931a5e-27d4-43f7-b7e4-d6c68367554c" x="10" y="10" width="80" height="20" fontSize="11.0" bold="true">
 				<text><![CDATA[LR No.        :]]></text>
 			</element>
-			<element kind="textField" uuid="3f0f2b7e-65c9-443b-a3ec-0d91c743cae0" x="89" y="10" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
+			<element kind="textField" uuid="fb90c595-b65e-497a-a734-cb00df9f449e" x="89" y="10" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
 				<expression><![CDATA[$P{lrNumber}]]></expression>
 			</element>
-			<element kind="textField" uuid="bfd93e13-8477-46ae-898b-7a1066c30a16" x="88" y="30" width="112" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
+			<element kind="textField" uuid="f3b93381-d1c8-46e8-8ec2-0595cc78be95" x="88" y="30" width="112" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
 				<expression><![CDATA[$P{date}]]></expression>
 			</element>
-			<element kind="staticText" uuid="954e6ca3-1952-436d-89f5-f6aa3fe5d853" x="10" y="50" width="80" height="20" fontSize="11.0" bold="true">
+			<element kind="staticText" uuid="6c44abf8-1e01-42cf-965c-b5f571971ce9" x="10" y="50" width="80" height="20" fontSize="11.0" bold="true">
 				<text><![CDATA[Vehicle No. :]]></text>
 			</element>
-			<element kind="textField" uuid="57c55767-71d5-4c94-beb4-75871e359f3f" x="87" y="50" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
+			<element kind="textField" uuid="3288e88b-3a32-42ff-a0d1-949e60612aca" x="87" y="50" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
 				<expression><![CDATA[$P{vehicleNumber}]]></expression>
 			</element>
-			<element kind="staticText" uuid="1fca7978-ae1e-4cab-922c-d9a59054785f" x="10" y="30" width="80" height="21" fontSize="11.0" bold="true" hTextAlign="Left">
+			<element kind="staticText" uuid="a82f1391-fea4-49b9-a872-51a819e18a23" x="10" y="30" width="80" height="21" fontSize="11.0" bold="true" hTextAlign="Left">
 				<text><![CDATA[Date           :]]></text>
 			</element>
 		</element>
-		<element kind="frame" uuid="0055c6f9-4bd9-4253-8b3a-b77618d0de96" x="350" y="82" width="220" height="76" printRepeatedValues="false">
-			<element kind="staticText" uuid="0c9ff90c-9309-48f2-b414-f933e8d6d835" x="2" y="10" width="88" height="20" fontSize="11.0" bold="true">
+		<element kind="frame" uuid="ba6042e2-f8bf-4047-8770-80544095c9bf" x="350" y="71" width="220" height="76" printRepeatedValues="false">
+			<element kind="staticText" uuid="a62b895e-b398-4c3d-8582-db3215a0cd18" x="2" y="10" width="88" height="20" fontSize="11.0" bold="true">
 				<text><![CDATA[From           :]]></text>
 			</element>
-			<element kind="textField" uuid="dbaf079e-8936-41c8-96b5-322e784105fe" x="89" y="10" width="122" height="20" fontName="Times New Roman" fontSize="12.0">
+			<element kind="textField" uuid="c5a7862e-52cb-4976-8792-bcfc9353e2a4" x="89" y="10" width="122" height="20" fontName="Times New Roman" fontSize="12.0">
 				<expression><![CDATA[$P{comingFrom}]]></expression>
 			</element>
-			<element kind="staticText" uuid="3084f3f3-890d-4656-b2b6-7cb7a6e903b4" x="2" y="30" width="87" height="20" fontSize="11.0" bold="true">
+			<element kind="staticText" uuid="a653a7e0-3498-4258-99f1-9882eb9db63e" x="2" y="30" width="87" height="20" fontSize="11.0" bold="true">
 				<text><![CDATA[To               :]]></text>
 			</element>
-			<element kind="textField" uuid="839efc28-7266-4974-8bbd-6bb5bfff7926" x="89" y="30" width="122" height="20" fontName="Times New Roman" fontSize="12.0">
+			<element kind="textField" uuid="5f0b1f19-2823-4b5b-89be-7fa90471f879" x="89" y="30" width="122" height="20" fontName="Times New Roman" fontSize="12.0">
 				<expression><![CDATA[$P{goingTo}]]></expression>
 			</element>
-			<element kind="staticText" uuid="cd8cf24f-a9b2-43df-91e9-1062657e960b" x="2" y="50" width="87" height="20" fontSize="11.0" bold="true" hTextAlign="Left">
+			<element kind="staticText" uuid="8aaf80ea-4bb1-4d88-a446-cf07647e3a2c" x="2" y="50" width="87" height="20" fontSize="11.0" bold="true" hTextAlign="Left">
 				<text><![CDATA[Driver Mo.   :]]></text>
 			</element>
-			<element kind="textField" uuid="271a24bf-0532-48ea-bc0e-3e32696f2727" x="89" y="50" width="122" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
+			<element kind="textField" uuid="04458bfe-9406-48e3-aa26-898031043767" x="89" y="50" width="122" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
 				<expression><![CDATA[$P{driverMobileNo}]]></expression>
 			</element>
 		</element>
-		<element kind="staticText" uuid="9e38ab7a-be87-4c06-9aef-a21c8507cf4f" x="201" y="90" width="60" height="20" fontSize="11.0" bold="true">
+		<element kind="staticText" uuid="62296c69-1cda-42e0-b06b-0027fe972e28" x="200" y="80" width="60" height="20" fontSize="11.0" bold="true">
 			<text><![CDATA[GSTIN   :]]></text>
 		</element>
-		<element kind="textField" uuid="0516e19c-3d9a-4872-9ab4-c02dc98b2696" x="200" y="110" width="141" height="20" fontSize="11.0" bold="false" hTextAlign="Left">
+		<element kind="textField" uuid="8b9273b1-7fd7-4080-986e-04ac3b8782ae" x="200" y="101" width="141" height="20" fontSize="11.0" bold="false" hTextAlign="Left">
 			<expression><![CDATA[$P{TaxIdentificationNumber}]]></expression>
 		</element>
-		<element kind="staticText" uuid="9577ac89-4346-4f2e-ada4-953766ab72da" x="201" y="130" width="80" height="20" fontSize="11.0" bold="true">
+		<element kind="staticText" uuid="6aec349f-5004-4ffe-9a3b-53d89b7e17c0" x="202" y="120" width="80" height="20" fontSize="11.0" bold="true">
 			<text><![CDATA[GST PaidBy :  ]]></text>
 		</element>
-		<element kind="textField" uuid="09e9699c-376b-46d2-8f76-fc01b63f1ce8" x="281" y="130" width="69" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
+		<element kind="textField" uuid="24606ee6-dd72-4746-86da-a5fbfa4b35fc" x="280" y="120" width="69" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
 			<expression><![CDATA[$P{GSTPaidBy}]]></expression>
 		</element>
-		<element kind="frame" uuid="45320e5d-0720-4ac2-ac33-badaf37c3d76" x="0" y="160" width="280" height="120" printRepeatedValues="false">
-			<element kind="staticText" uuid="b84e5a4b-ece3-48bf-b562-aab2f102d2da" x="11" y="11" width="259" height="20" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Center">
-				<text><![CDATA[CONSIGNOR]]></text>
-				<property name="com.jaspersoft.studio.unit.width" value="px"/>
-			</element>
-			<element kind="textField" uuid="5c0e5ba0-7bd0-4da6-b278-9c5a0a66c701" x="12" y="50" width="258" height="46" markup="none" fontSize="11.0" hTextAlign="Center">
-				<expression><![CDATA[$P{consignorAddress}]]></expression>
-			</element>
-			<element kind="staticText" uuid="ae2f8ebf-4f48-407e-a9ac-2f20660d3c19" x="61" y="100" width="70" height="18" fontSize="11.0" bold="true">
-				<text><![CDATA[GST No.   :]]></text>
-			</element>
-			<element kind="textField" uuid="cdcedc1b-efed-40bc-9fce-d3c8e9bd2860" x="12" y="31" width="259" height="19" fontSize="11.0" bold="true" hTextAlign="Center">
-				<expression><![CDATA[$P{consignorName}]]></expression>
-			</element>
-			<element kind="textField" uuid="3ee6145d-2513-44fc-b24f-4c879bb42efc" x="132" y="101" width="138" height="20" fontSize="11.0" bold="false" hTextAlign="Left">
-				<expression><![CDATA[$P{consignorGST}]]></expression>
-			</element>
-			<box>
-				<pen lineWidth="1.0" lineStyle="Solid"/>
-			</box>
-		</element>
-		<element kind="frame" uuid="0149bd18-8133-40ff-bd20-6274b3fa0c3e" x="280" y="160" width="276" height="120" printRepeatedValues="false">
-			<element kind="staticText" uuid="6443346e-c847-4c47-adab-0110d3925f26" x="10" y="12" width="259" height="20" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Center">
+		<element kind="frame" uuid="ed40c54a-1401-4996-9d5d-5d4811474b6d" x="280" y="150" width="276" height="126" printRepeatedValues="false">
+			<element kind="staticText" uuid="5cff3577-35c3-4056-868c-423fe234c72f" x="10" y="12" width="259" height="20" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Center">
 				<text><![CDATA[CONSIGNEE]]></text>
 				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			</element>
-			<element kind="textField" uuid="11e7dbe2-ee02-4fb4-812d-cc051cd0f195" x="11" y="51" width="258" height="46" markup="none" fontSize="11.0" hTextAlign="Center">
+			<element kind="textField" uuid="24a57aa3-5065-494f-8648-68d6402b326d" x="11" y="51" width="258" height="46" markup="none" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
 				<expression><![CDATA[$P{consigneeAddress}]]></expression>
 			</element>
-			<element kind="staticText" uuid="346d4e82-ba9a-448a-b445-5c285ab1a81d" x="61" y="100" width="70" height="18" fontSize="11.0" bold="true">
+			<element kind="staticText" uuid="a00fc4bb-7862-4491-ae4f-78be28b92fc4" x="61" y="100" width="70" height="18" fontSize="11.0" bold="true">
 				<text><![CDATA[GST No.   :]]></text>
 			</element>
-			<element kind="textField" uuid="bf300d50-e1db-47d7-ac61-d1a8027b65e7" x="10" y="32" width="259" height="19" fontSize="11.0" bold="true" hTextAlign="Center">
+			<element kind="textField" uuid="14dce606-a9c1-4931-8603-5ab725b4a07c" x="10" y="32" width="259" height="19" fontSize="11.0" bold="true" hTextAlign="Center">
 				<expression><![CDATA[$P{consigneeName}]]></expression>
 			</element>
-			<element kind="textField" uuid="5f3c0b27-b943-4167-b37d-cb6cdeb3c960" x="132" y="101" width="137" height="20" fontSize="11.0" bold="false" hTextAlign="Left">
+			<element kind="textField" uuid="2ac67806-bc96-4d39-93f0-10daa7618a0a" x="132" y="101" width="137" height="20" fontSize="11.0" bold="false" hTextAlign="Left">
 				<expression><![CDATA[$P{consigneeGST}]]></expression>
 			</element>
 			<box>
 				<pen lineWidth="1.0" lineStyle="Solid"/>
 			</box>
 		</element>
+		<element kind="frame" uuid="ca2d7b06-c22b-4456-92a5-8554cf08ce77" x="0" y="150" width="280" height="126" printRepeatedValues="false">
+			<element kind="staticText" uuid="386bf80a-288c-4d05-8f8d-1eee87bd7652" x="11" y="11" width="259" height="20" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Center">
+				<text><![CDATA[CONSIGNOR]]></text>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="b297ba64-c823-40cc-bd98-4031f5e42d42" x="12" y="50" width="258" height="46" markup="none" fontName="Times New Roman" fontSize="12.0" hTextAlign="Center">
+				<expression><![CDATA[$P{consignorAddress}]]></expression>
+			</element>
+			<element kind="staticText" uuid="a79a9509-de8b-4de6-822e-b3f8b0c54646" x="61" y="100" width="70" height="18" fontSize="11.0" bold="true">
+				<text><![CDATA[GST No.   :]]></text>
+			</element>
+			<element kind="textField" uuid="68ac029c-5baf-4783-9c4a-45acf628f699" x="12" y="31" width="259" height="19" fontSize="11.0" bold="true" hTextAlign="Center">
+				<expression><![CDATA[$P{consignorName}]]></expression>
+			</element>
+			<element kind="textField" uuid="7cfd3f13-64a8-49c8-bd00-9ccf1d52250f" x="132" y="101" width="138" height="20" fontSize="11.0" bold="false" hTextAlign="Left">
+				<expression><![CDATA[$P{consignorGST}]]></expression>
+			</element>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="80b797b3-d3e1-4320-8805-abba92384a6c" x="95" y="0" width="315" height="25" forecolor="#061966" fontSize="18.0" bold="true" hTextAlign="Left" vTextAlign="Top">
+			<expression><![CDATA[$P{companyName}]]></expression>
+		</element>
+		<element kind="textField" uuid="0dd99397-bc7b-4119-bad0-953f8ba5de79" x="95" y="25" width="315" height="31" markup="none" fontName="Times New Roman" fontSize="11.0" hTextAlign="Left">
+			<expression><![CDATA[$P{companyAddress}]]></expression>
+		</element>
+		<element kind="staticText" uuid="14f6250a-45c0-4055-8a9d-faca2c4ddd90" x="432" y="20" width="48" height="20" fontName="SansSerif" fontSize="10.0">
+			<text><![CDATA[Contact :]]></text>
+		</element>
+		<element kind="textField" uuid="c55f92a9-450c-4210-bfc2-471ad0ea3b65" x="480" y="20" width="76" height="20" fontSize="10.0" hTextAlign="Left">
+			<expression><![CDATA[$P{companyContact}]]></expression>
+		</element>
 	</title>
-	<columnHeader/>
+	<columnHeader height="20">
+		<element kind="staticText" uuid="3c25827d-a84e-4211-a9c0-0f177e82aa7d" positionType="Float" x="0" y="0" width="110" height="20" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Packages]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bfc85dc0-5a20-4054-8ade-0cd876d075e2"/>
+			<box style="Column header">
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="cd179cb0-bb51-4791-bf18-3f737c50569e" positionType="Float" x="110" y="0" width="220" height="20" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Nature Of Goods]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="128f9983-013d-4c89-a2fc-95abcd8669c3"/>
+			<box style="Column header">
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="9f7d2d80-a705-4c3d-98a6-7f4b590b1da8" positionType="Float" x="330" y="0" width="110" height="20" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Weight]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e71fa1a1-8bd9-4905-84b0-61904a2cb821"/>
+			<box style="Column header">
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="e6e3bbdd-7857-487b-98f8-7962ea6876b3" positionType="Float" x="440" y="0" width="116" height="20" forecolor="#000000" fontName="Arial" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle" style="Column header">
+			<text><![CDATA[Freight]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6e6c1ca-f1df-4c9c-b1be-32cb502b72db"/>
+			<box style="Column header">
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+	</columnHeader>
 	<detail>
-		<band height="170">
-			<element kind="component" uuid="217aca65-551d-4c07-ab47-b4033039e105" x="-1" y="10" width="557" height="140">
-				<component kind="table">
-					<datasetRun uuid="881f8ebe-962d-4b77-9693-8a09847ad56e" subDataset="tableDataset">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<detail splitType="Stretch"/>
-					<column kind="single" uuid="b40d2e9f-5508-42db-acbd-21644660b455" width="100">
-						<columnHeader height="30" style="Table 1_CH">
-							<element kind="staticText" uuid="5223c67f-01c5-4489-aeac-b079d13d37be" x="0" y="0" width="100" height="30" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Packages]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="100" style="Table 1_TD">
-							<element kind="textField" uuid="a0549348-436d-4a2f-be4a-526b00e13020" x="0" y="0" width="100" height="100" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$P{packages}]]></expression>
-							</element>
-						</detailCell>
-					</column>
-					<column kind="single" uuid="c3bba9aa-3d57-4415-a61a-4fc16a5560e5" width="220">
-						<columnHeader height="30" style="Table 1_CH">
-							<element kind="staticText" uuid="5da11539-a046-496e-b3e1-a7b290353d55" x="0" y="0" width="220" height="30" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Nature Of Goods]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="100" style="Table 1_TD">
-							<element kind="staticText" uuid="208c5231-ee25-4b8c-bd64-9b698d67b551" x="0" y="0" width="65" height="20">
-								<text><![CDATA[Commodity :]]></text>
-							</element>
-							<element kind="staticText" uuid="e25f8e02-6aac-4bbe-8bf8-f79425e964e0" x="0" y="20" width="40" height="20">
-								<text><![CDATA[BE No. :]]></text>
-							</element>
-							<element kind="staticText" uuid="634ad146-85be-42cf-aaca-4b9ea34412a5" x="0" y="40" width="40" height="20">
-								<text><![CDATA[GP No. :]]></text>
-							</element>
-							<element kind="staticText" uuid="ae448f28-b0f7-442a-bb29-5dc74e32b347" x="0" y="60" width="40" height="20">
-								<text><![CDATA[ST No. :]]></text>
-							</element>
-							<element kind="staticText" uuid="f824c2a0-ddc8-44a8-9278-e08f3bf2cbb3" x="0" y="80" width="40" height="20">
-								<text><![CDATA[TP No :]]></text>
-							</element>
-						</detailCell>
-					</column>
-					<column kind="single" uuid="4d03a3c1-471f-43f6-9d5b-62230910e0d7" width="120">
-						<columnHeader height="30" style="Table 1_CH">
-							<element kind="staticText" uuid="b513d09e-056d-486f-a606-21238afcfdcc" x="0" y="0" width="120" height="30" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Weight]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="100" style="Table 1_TD">
-							<element kind="textField" uuid="f101b282-dd51-45a5-bddd-bee22a61e4b8" x="0" y="0" width="120" height="100" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$P{weight}]]></expression>
-							</element>
-						</detailCell>
-					</column>
-					<column kind="single" uuid="1a3d81de-fff9-444b-9b3f-614fc080b717" width="117">
-						<columnHeader height="30" style="Table 1_CH">
-							<element kind="staticText" uuid="f168a49d-8ede-4e24-83cc-c832899bbf6b" x="0" y="0" width="117" height="30" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
-								<text><![CDATA[Freight]]></text>
-							</element>
-						</columnHeader>
-						<detailCell height="100" style="Table 1_TD">
-							<element kind="textField" uuid="b3c8b93f-246a-48ca-8160-6a621d98608b" x="0" y="0" width="117" height="100" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
-								<expression><![CDATA[$P{freight}]]></expression>
-							</element>
-						</detailCell>
-					</column>
-				</component>
-				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
-				<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
-				<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
-				<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+		<band height="362">
+			<element kind="textField" uuid="dc4e19f2-2541-4a1b-a69c-5b93d28a2d59" positionType="Float" x="0" y="0" width="110" height="90" fontName="Arial" fontSize="14.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" vTextAlign="Middle" style="Detail">
+				<expression><![CDATA[$F{packages}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bfc85dc0-5a20-4054-8ade-0cd876d075e2"/>
+				<box style="Detail">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="0f84a837-e8ff-4e62-abf8-88013187c640" positionType="Float" x="110" y="0" width="220" height="90" fontName="Arial" fontSize="13.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" vTextAlign="Middle" style="Detail">
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="128f9983-013d-4c89-a2fc-95abcd8669c3"/>
+				<box style="Detail">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="fb521593-b6b4-48ab-b9fc-d82e17861df1" positionType="Float" x="330" y="0" width="110" height="90" fontName="Arial" fontSize="16.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" vTextAlign="Middle" style="Detail">
+				<expression><![CDATA[$F{weight}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e71fa1a1-8bd9-4905-84b0-61904a2cb821"/>
+				<box style="Detail">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="5541706a-f403-418b-9973-8df342f705b6" positionType="Float" x="440" y="0" width="116" height="90" fontName="Arial" fontSize="16.0" textAdjust="StretchHeight" blankWhenNull="true" bold="false" hTextAlign="Center" vTextAlign="Middle" style="Detail">
+				<expression><![CDATA[$F{freight}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6e6c1ca-f1df-4c9c-b1be-32cb502b72db"/>
+				<box style="Detail">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="366092b5-3406-4024-ae63-dc404473dafa" x="110" y="20" width="50" height="20" hTextAlign="Center">
+				<text><![CDATA[BE No.  :]]></text>
+			</element>
+			<element kind="staticText" uuid="a5e63e8a-8dc9-4b75-972e-1f62c95c2b53" x="110" y="0" width="92" height="20" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[Commodity    : ]]></text>
+			</element>
+			<element kind="textField" uuid="f498835c-b374-4dfb-8d18-c33d5868118c" x="202" y="0" width="128" height="20" vTextAlign="Middle">
+				<expression><![CDATA[$F{commodity}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="65976e6c-549d-4aa7-b5c1-3b265af005c8"/>
+			</element>
+			<element kind="textField" uuid="747c6c17-8e31-4e45-b315-0f36b90207b1" x="160" y="20" width="170" height="20">
+				<expression><![CDATA[$P{BE_No_BillOfEntryNumber}]]></expression>
+			</element>
+			<element kind="staticText" uuid="6b67ebfb-9efc-4b1d-a469-c50e01380bb6" x="110" y="40" width="50" height="20" hTextAlign="Center">
+				<text><![CDATA[CBM     :]]></text>
+			</element>
+			<element kind="staticText" uuid="1af1a617-5996-48de-af76-eef03ab32b3b" x="110" y="60" width="50" height="20" hTextAlign="Center">
+				<text><![CDATA[Bill No  :]]></text>
+			</element>
+			<element kind="textField" uuid="fac91bce-6bb8-4b79-9d67-54412934d23a" x="160" y="40" width="170" height="20">
+				<expression><![CDATA[$P{CBM_CubicMeter}]]></expression>
+			</element>
+			<element kind="textField" uuid="0422ee52-fc0c-4a4d-bcd9-d71aa2c25484" x="160" y="60" width="170" height="20">
+				<expression><![CDATA[$P{Bill_Number}]]></expression>
+			</element>
+			<element kind="frame" uuid="80655ce9-ac72-4770-a93d-22a407c85591" x="294" y="90" width="262" height="156" printRepeatedValues="false">
+				<element kind="staticText" uuid="875c1532-34fd-4681-a5dd-b7c93ab2777b" x="10" y="28" width="130" height="20" fontSize="11.0" bold="true">
+					<text><![CDATA[Total Freight             :]]></text>
+				</element>
+				<element kind="textField" uuid="dbc418ad-09e0-446b-b34d-431e8eb12f81" x="141" y="29" width="118" height="18" fontName="Times New Roman" fontSize="12.0">
+					<expression><![CDATA[$P{Total_freight_amount}]]></expression>
+				</element>
+				<element kind="textField" uuid="758d7433-5e41-45bb-abf2-f6ca16197bb2" x="141" y="49" width="118" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
+					<expression><![CDATA[$P{Gaurantee_Charges}]]></expression>
+				</element>
+				<element kind="staticText" uuid="d190bec3-1dc7-4bc5-8425-63fe21940685" x="10" y="68" width="130" height="20" fontSize="11.0" bold="true">
+					<text><![CDATA[Bilty Charges            :]]></text>
+				</element>
+				<element kind="textField" uuid="88235fa5-781f-4982-b9a3-f075213cf7f8" x="141" y="70" width="118" height="20" fontName="Times New Roman" fontSize="12.0">
+					<expression><![CDATA[$P{Bilty_Charges}]]></expression>
+				</element>
+				<element kind="staticText" uuid="d6cafad5-ccf6-4087-ad72-01e814e2f9a9" x="10" y="48" width="130" height="20" fontSize="11.0" bold="true" hTextAlign="Left">
+					<text><![CDATA[Gaurantee Charges  :]]></text>
+				</element>
+				<element kind="staticText" uuid="c20b6674-0995-4a56-9a11-c54afeb49046" x="10" y="88" width="130" height="20" fontSize="11.0" bold="true">
+					<text><![CDATA[Advance Amount     :]]></text>
+				</element>
+				<element kind="staticText" uuid="b320eb8d-bb39-408d-999f-b3c9c8ef4df6" x="140" y="8" width="119" height="20" forecolor="#030303" fontSize="12.0" bold="true" hTextAlign="Left">
+					<text><![CDATA[AMOUNT]]></text>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="textField" uuid="15b6f9fb-ed2a-4727-ab7c-070ab8e8bf34" x="140" y="89" width="118" height="20" fontName="Times New Roman" fontSize="12.0">
+					<expression><![CDATA[$P{AdvanceAmount}]]></expression>
+				</element>
+				<element kind="staticText" uuid="eaf79b50-edf8-4f13-b748-f2b329de1ee7" x="11" y="109" width="130" height="20" fontSize="11.0" bold="true">
+					<text><![CDATA[Round Off                 :]]></text>
+				</element>
+				<element kind="staticText" uuid="86341a0b-f1a2-4364-be8d-2f936cbc97db" x="11" y="130" width="130" height="20" fontSize="11.0" bold="true">
+					<text><![CDATA[Freight To Pay         :]]></text>
+				</element>
+				<element kind="textField" uuid="855205a5-50c7-4f9f-b3e1-f0e524e2cb5e" x="141" y="110" width="118" height="20" fontName="Times New Roman" fontSize="12.0">
+					<expression><![CDATA[$P{Round_Off}]]></expression>
+				</element>
+				<element kind="textField" uuid="109d358f-5436-4b8a-ba90-e84d3576681f" x="142" y="131" width="116" height="20" fontName="Times New Roman" fontSize="12.0">
+					<expression><![CDATA[$P{Freight_To_Pay}]]></expression>
+				</element>
+				<element kind="frame" uuid="6fd7b153-ac3a-4585-b098-e27e88c264fc" x="-215" y="0" width="215" height="109" printRepeatedValues="false">
+					<element kind="staticText" uuid="51ce3558-5140-48ee-93ea-7e1fd41d18c7" x="10" y="28" width="80" height="20" fontSize="11.0" bold="true">
+						<text><![CDATA[Name            :]]></text>
+					</element>
+					<element kind="textField" uuid="41560360-b4b1-4633-97aa-076d9f33775b" x="90" y="28" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
+						<expression><![CDATA[$P{AccountHolder}]]></expression>
+					</element>
+					<element kind="textField" uuid="8b0a625b-3f7a-4455-beb1-9339005b71cc" x="90" y="48" width="112" height="20" fontName="Times New Roman" fontSize="12.0" printRepeatedValues="false">
+						<expression><![CDATA[$P{AccountBranch}]]></expression>
+					</element>
+					<element kind="staticText" uuid="87234307-f649-4cd3-afd7-f985a3cc45e1" x="10" y="68" width="80" height="20" fontSize="11.0" bold="true">
+						<text><![CDATA[Account No  :]]></text>
+					</element>
+					<element kind="textField" uuid="19bf0552-195e-4599-9fbd-d72ffc346023" x="90" y="68" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
+						<expression><![CDATA[$P{AccountNumber}]]></expression>
+					</element>
+					<element kind="staticText" uuid="32a459a1-9005-4c27-9b91-8a7d473b0cd1" x="10" y="48" width="80" height="20" fontSize="11.0" bold="true" hTextAlign="Left">
+						<text><![CDATA[Branch         :]]></text>
+					</element>
+					<element kind="staticText" uuid="bfa277ca-ada0-488f-be49-2be8ae067fbf" x="10" y="88" width="80" height="20" fontSize="11.0" bold="true">
+						<text><![CDATA[IFSC Code    :]]></text>
+					</element>
+					<element kind="staticText" uuid="97f69859-9c83-490f-9bcd-6e021c94dd35" x="9" y="8" width="194" height="20" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Center">
+						<text><![CDATA[BANK DETAILS]]></text>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</element>
+					<element kind="textField" uuid="116fc567-5a4a-4183-b7b6-2e5613c783ec" x="89" y="88" width="113" height="20" fontName="Times New Roman" fontSize="12.0">
+						<expression><![CDATA[$P{AccountNumber}]]></expression>
+					</element>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+				</element>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="2379c71d-f01f-4896-b193-0186f695e1a7" x="80" y="200" width="215" height="30" fontName="Times New Roman">
+				<text><![CDATA[Certified that the particular given amount are true and correct ]]></text>
+			</element>
+			<element kind="textField" uuid="7ba5daeb-ffe1-4b72-94ab-7910591d3d5a" x="108" y="223" width="186" height="16" fontSize="11.0" bold="true">
+				<expression><![CDATA[$P{companyName}]]></expression>
+			</element>
+			<element kind="staticText" uuid="628f1318-2510-4629-baeb-91448bce3297" x="79" y="223" width="29" height="16" fontSize="11.0" bold="true">
+				<text><![CDATA[For,]]></text>
+			</element>
+			<element kind="frame" uuid="42272dae-4443-4f96-ab27-e59309df6824" x="1" y="246" width="369" height="110">
+				<element kind="staticText" uuid="65cf7771-e35a-4235-98b5-069ddff07109" x="9" y="30" width="351" height="69" fontName="Times New Roman" bold="false" hTextAlign="Center">
+					<text><![CDATA[The Consignment covered by this set of special lorry receipt from shall be stored at the destination under the control of the transport operator & shall be delivered to or the order of the consignee bank whose name is mentioned in the lorry receipt it will under no circumstances be delivered to any one without the written authority from the consignee bank or its order endprsed on sondignee copy in on selerate letter of authority.]]></text>
+				</element>
+				<element kind="staticText" uuid="c13dea5a-63fa-479b-a1a3-2cb859886ddd" x="2" y="0" width="349" height="30" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[-NOTICE-]]></text>
+				</element>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="7a426ab4-41ea-4567-80e0-071a17dd0d6d" x="381" y="336" width="172" height="20" forecolor="#112E73" fontSize="13.0" bold="true" hTextAlign="Right">
+				<text><![CDATA[Authorised Signatory]]></text>
 			</element>
 		</band>
 	</detail>
-	<lastPageFooter height="158">
-		<element kind="staticText" uuid="36aa233d-4305-48e6-974a-1bbf89bb3c8f" positionType="Float" mode="Opaque" x="9" y="120" width="556" height="30" backcolor="#E6E8E9" fontName="Serif" fontSize="9.0" italic="true" hTextAlign="Center" vTextAlign="Middle">
-			<text><![CDATA[THANKYOU FOR YOUR BUSINESS]]></text>
-		</element>
-	</lastPageFooter>
+	<lastPageFooter height="6"/>
 </jasperReport>
