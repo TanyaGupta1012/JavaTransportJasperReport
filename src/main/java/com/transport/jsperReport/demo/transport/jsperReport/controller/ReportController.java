@@ -88,18 +88,3 @@ public class ReportController {
 
 }
 
-//    @GetMapping("/transport")
-//    public ResponseEntity<byte[]> generateTransportReport() {
-//        try {
-//            byte[] pdfReport = reportService.generateTransportReport();
-//
-//            HttpHeaders headers = new HttpHeaders();
-//            headers.setContentType(MediaType.APPLICATION_PDF);
-//            headers.setContentDispositionFormData("filename", "TransportReport.pdf");
-//
-//            return new ResponseEntity<>(pdfReport, headers, HttpStatus.OK);
-//
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
